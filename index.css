@@ -1,0 +1,328 @@
+#hero {
+  height: 100vh;
+  width: 100%;
+  z-index: 2;
+}
+#oneBox {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  user-select: none;
+  /* overflow: hidden; */
+}
+#oneBox::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background-image: url("/github_projects/projects__images/cdc-VRpjDw3WqqI-unsplash\ \(1\).jpg"); */
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.6), transparent),
+    url("/github_projects/projects__images/cdc-VRpjDw3WqqI-unsplash\ \(1\).jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.8;
+  z-index: 1;
+  height: 100vh;
+}
+nav {
+  position: sticky;
+  z-index: 999;
+  color: white;
+  text-align: center;
+  background-color: beige;
+  margin: auto;
+  height: 70px;
+  width: 90%;
+  top: 0px;
+}
+nav ul {
+  padding-top: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 80%;
+}
+#menu li {
+  position: relative !important;
+  list-style: none !important;
+  padding-left: 5px !important;
+}
+#menu li img {
+  width: 21px;
+  position: absolute;
+  top: -1px;
+  right: -22px;
+}
+#menu li a {
+  color: white;
+  font-family: questrial, sans-serif;
+  display: inline;
+  color: #0a2323;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: none;
+}
+#menu li a:hover {
+  color: red;
+  transition: all 0.2s ease-in-out;
+}
+a {
+  text-decoration: none;
+  text-transform: capitalize;
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+  padding: 5px;
+}
+li {
+  list-style: none;
+  padding-left: 5px;
+}
+
+.dropDown {
+  display: none;
+  position: absolute;
+  background-color: beige;
+  left: -40px;
+  text-align: left;
+  width: 101px;
+}
+.dropDown li {
+  width: 59px;
+  font-size: 14px;
+  text-align: left;
+}
+
+#menu li:hover .dropDown {
+  display: block !important;
+}
+.dropDown li a {
+  color: black !important;
+}
+.dropDown li a:hover {
+  background-color: black;
+  color: white !important;
+  text-transform: capitalize;
+}
+
+/* login link press */
+#overlay {
+  display: none;
+}
+
+/* login back page */
+#overlay {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  top: 0px;
+  left: 0px;
+}
+
+#loginPage {
+  display: none;
+}
+.loginBox {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  background-color: rgb(194, 156, 162);
+  top: 50%;
+  left: 53%;
+  z-index: 11;
+  height: 40%;
+  width: 30%;
+  border-radius: 5px;
+  box-shadow: 0px 1px 4px 2px rgb(225, 213, 255);
+}
+
+.inp {
+  height: 25px;
+  font-size: 12px;
+  display: inline;
+  margin-top: 5px;
+  border: 1px solid;
+  padding: 0px 5px;
+}
+span {
+  display: inline;
+  font-size: 11px;
+  height: 12px;
+  font-weight: lighter;
+}
+.btndiv {
+  width: 70%;
+  height: 30px;
+  text-align: center;
+}
+#loginBtn {
+  margin-top: 5px;
+  padding: 2px 5px;
+  width: 30%;
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+#loginBtn:active {
+  background-color: burlywood;
+  color: white;
+  border: 1px solid;
+  box-shadow: 0px 0px 2px 1px;
+}
+#SignUplink {
+  /*changed name*/
+  text-decoration: underline;
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-weight: lighter;
+}
+
+/* login close btn */
+#closeBtn {
+  width: 100%;
+  text-align: end;
+  margin-right: 5px;
+}
+#closeBtn button:hover {
+  background-color: blue;
+  color: white;
+}
+/* sign up page */
+#signUpContainer {
+  display: none;
+  width: 30%;
+  height: 40vh;
+  border: 1px solid;
+  position: fixed;
+  top: 35%;
+  left: 35%;
+  text-align: center;
+  z-index: 12;
+  background-color: black;
+  padding: 10px;
+}
+#signUpContainer h2 {
+  color: white;
+}
+#signInputBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#signInputBox input {
+  display: block;
+  margin: 5px;
+  height: 22px;
+  border: 1px solid red;
+  box-shadow: 0px 0px 4px 2px grey;
+  border-radius: 3px;
+  padding-left: 5px;
+}
+#signInputBox button {
+  margin-bottom: 5px;
+  height: 22px;
+}
+
+/* signUp close btn */
+#closeBtnInner {
+  width: 100%;
+  text-align: end;
+  margin-right: 5px;
+}
+#closeBtnInner button:hover {
+  background-color: blue;
+  color: white;
+}
+
+/* left text */
+#leftText {
+  color: black;
+  z-index: 1;
+  position: absolute;
+  width: 30%;
+  padding: 10px;
+  /* border: 1px solid; */
+  right: 7%;
+  top: 40%;
+  color: rgb(240, 240, 228);
+  text-align: start;
+  font-family: "Segoe UI", Verdana, sans-serif;
+  letter-spacing: 1px;
+  font-size: 1.1rem;
+}
+#leftText button {
+  height: 40px;
+  border-radius: 20px;
+  width: 30%;
+  border: 1px solid;
+  font-family: questrial, sans-serif;
+}
+#leftText button:hover {
+  background-color: black;
+  color: white;
+  transform: scale(1);
+  transition: all 0.3s ease-in-out;
+  letter-spacing: 1px;
+}
+#leftText p {
+  font-size: 15px;
+}
+
+/* cards  */
+#cardsContainer {
+  width: 100%;
+}
+.revew_h3 {
+  font-size: 31px;
+}
+#cardBox {
+  /* border: 1px solid; */
+  width: 90%;
+  height: 75vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto;
+}
+.cards {
+  border: 1px solid;
+  margin: 20px;
+  background-color: rgb(241, 220, 102);
+  height: 13rem;
+  width: 350px;
+  padding: 30px;
+  font-family: sans-serif;
+  box-shadow: 0px 0px 2px 1px;
+  border-radius: 5px;
+}
+.cards:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 18px rgba(227, 223, 223, 0.3);
+  transition: all 0.2s ease-in-out;
+  background-color: black;
+  color: white;
+}
+
+.feedback {
+  font-size: 16px;
+  font-weight: lighter;
+  letter-spacing: 2px;
+}
+
+.pera {
+  font-size: 12px;
+}
+.name {
+  letter-spacing: 1px;
+  font-size: 13px;
+  text-decoration: underline;
+  font-family: initial;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fixed Background Inside Rectangle</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 200vh; /* to allow scrolling */
+      background-color: #f0f0f0;
+    }
+
+    .image-frame {
+      width: 500px;
+      height: 400px;
+      margin: 100px auto;
+      overflow: hidden;
+      position: relative;
+      border: 4px solid #000;
+    }
+
+    .image-frame::before {
+      content: "";
+      position: fixed;
+      top: 100px; /* same as margin-top of .image-frame */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 400px;
+      background-image: url('/github_projects/projects__images/john-towner-JgOeRuGD_Y4-unsplash.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="image-frame"></div>
+
+  <div style="height: 1000px; text-align: center;">
+    <h2>Scroll down</h2>
+    <p>This content scrolls but the image remains fixed inside the box.</p>
+  </div>
+
+</body>
+</html>

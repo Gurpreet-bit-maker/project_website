@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(65, 105, 225);
+      }
+      label {
+        color: black;
+        font-weight: bold;
+        text-transform: capitalize;
+      }
+      form {
+        text-align: center;
+        border: 1px solid;
+        width: 30%;
+        height: auto;
+        padding: 10px;
+        background-color: rgb(50, 205, 50);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        user-select: none;
+        position: relative;
+      }
+      form h2 {
+        color: cyan;
+        text-decoration: underline;
+      }
+      input {
+        padding: 5px;
+        text-transform: capitalize;
+      }
+      .food-t {
+        color: beige;
+      }
+      .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .btn button {
+        margin-bottom: 5px;
+        height: 29px;
+        width: 80px;
+        border-radius: 20px;
+        transition: transform 0.2s ease-in;
+        border: 1px solid greyhyhfghttrgghtgtgytytrg;
+        position: relative;
+      }
+      .btn button::after {
+        content: var(--after-content, "");
+        position: absolute;
+        right: -8px;
+        background-color: red;
+        width: 14px;
+        border-radius: 5px;
+        top: -4px;
+        color: white;
+      }
+      .btn button:hover {
+        background-color: orangered;
+        color: white;
+        border: 1px solid;
+        transform: scale(1.1);
+        box-shadow: 0px 2px 2px 0px black;
+        transition: transform 0.2s ease-in;
+      }
+      .btn button:active {
+        background-color: blue;
+        color: yellow;
+      }
+      span {
+        margin-right: 40px;
+        color: crimson;
+      }
+      span::after {
+        content: " ";
+        background-image: url("/github_projects/projects__images/imges signup.png");
+        position: absolute;
+        top: 28px;
+        right: 35px;
+        width: 140px;
+        height: 20vh;
+        background-size: 40px;
+        background-repeat: no-repeat;
+        border-radius: 20px;
+        display: block;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="#" method="post" id="myform">
+      <h2>Donate <span>Food</span> Form</h2>
+      <label>Food name</label><br />
+      <input type="text" name="F_name" placeholder="Food Name..." />
+      <br />
+      <br />
+
+      <label class="food-t">Non-Veg</label>
+      <input type="checkbox" value="non-veg" name="item" />
+
+      <label class="food-t">Vegeterian</label>
+      <input type="checkbox" value="veg" name="item" />
+      <br /><br />
+      <label>Food quintity</label><br />
+      <input type="text" name="Quanity" placeholder="Quentity" />
+      <br /><br />
+      <label>Pick up add</label><br />
+      <textarea name="address" placeholder="text .." id=""></textarea>
+      <br /><br />
+      <div class="btn" style="border: 1px solid">
+        <label for="file">Upload image or file</label><br />
+        <input type="file" name="myfile" />
+        <button type="submit" style="display: block">Submit</button>
+      </div>
+    </form>
+    <script>
+      let form = document.querySelector("form");
+      let submitButton = document.querySelector(".btn button");
+      let submitionCounter = 0;
+      // pending work of veg and nonveg input array
+      let formData;
+      document.addEventListener("DOMContentLoaded", function () {
+        formData = JSON.parse(localStorage.getItem("f_data")) || [];
+        submitionCounter++;
+        submitButton.style.setProperty(
+          "--after-content",
+          `"${submitionCounter}"`
+        );
+        console.log(formData);
+      });
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        let arr = [];
+        let objData = {};
+        let chck = document.querySelectorAll('input[name="item"]:checked'); //learn also from this how to get value as an text
+
+        let allinput = document.querySelectorAll("input"); //learn from this line
+        let textarea = document.querySelector("textarea");
+
+        let formFeel = false;
+        allinput.forEach((it) => {
+          if (it.value !== "") {
+            formFeel = true;
+          } else {
+            formFeel = false;
+          }
+        });
+
+        if (formFeel) {
+          check();
+        } else {
+          alert("please enter form feel");
+        }
+        function check() {
+          submitionCounter++;
+          submitButton.style.setProperty(
+            "--after-content",
+            `"${submitionCounter}"`
+          );
+          console.log(submitionCounter);
+          chck.forEach((item) => {
+            arr.push(item.value);
+          });
+          allinput.forEach((element) => {
+            objData[element.name] = element.value;
+          });
+          objData["address"] = textarea.value;
+          objData["F_type"] = arr;
+          formData.push(objData);
+          localStorage.setItem("f_data", JSON.stringify(formData));
+
+          console.log(formData);
+          form.reset();
+        }
+      });
+      let allthe = [];
+      let singers = {};
+      let ar = ["sonu", "himesh", "mehmoodh"];
+      singers["atif"] = "good singer";
+      singers["all singers"] = ar;
+      allthe.push(singers);
+      let a = allthe.map((item) => {
+        return item.atif;
+      });
+
+      console.log(a);
+    </script>
+    <!-- <script src="/github_projects/bojanDoIndia/index.js"></script> -->
+  </body>
+</html>
